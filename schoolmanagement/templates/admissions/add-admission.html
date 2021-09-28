@@ -1,0 +1,241 @@
+{% load static %}
+
+<html>
+
+<head>
+    <title>School Management</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="{% static "stylesheets/tables.css" %}">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css">
+
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.25/css/dataTables.bootstrap4.min.css">
+
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.25/js/dataTables.bootstrap4.min.js"></script>
+
+
+</head>
+
+
+<body class="img-fluid base-image" style="background-image:linear-gradient(rgba(0, 0, 0, 0.9),rgba(0, 0, 0, 0.9)),url('{% static "images/index7.jpg" %}')">
+
+    {% load crispy_forms_tags %}
+    <br>
+
+    <nav style="background-image:linear-gradient(rgba(0, 0, 0, 0.9),rgba(0, 0, 0, 0.9)),url('{% static "images/index7.jpg" %}')" class="navbar navbar-expand-sm sticky-top navbar-dark">
+        <div class="container">
+            <a class="navbar-brand btn btn-danger" href="/"><i style="color:white;" class="fa fa-backward fa-sm" aria-hidden="true"></i> BACK</a>
+            <button type="button" class="btn btn-primary btn-add" data-toggle="modal" data-target="#searchModalCenter">
+                <i style="color:white;" class="fa fa-search fa-lg" aria-hidden="true"></i>
+            </button>
+
+            <div class="" id="navbar1">
+
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-bar active search-box-nav">
+                        <div class="btn-group search-box">
+                            <button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                SEARCH BY CLASS
+                            </button>
+                            <div class="dropdown-menu dropdown-menu-right">
+                                <a class="dropdown-item" href="/ad/newadm/">All Classes</a>
+                                <a class="dropdown-item" href="/ad/newadm/?name=&classname=Nursery#">Nursery</a>
+                                <a class="dropdown-item btn" href="/ad/newadm/?name=&classname=L.K.G#">L.K.G</a>
+                                <a class="dropdown-item btn" href="/ad/newadm/?name=&classname=U.K.G#">U.K.G</a>
+                                <a class="dropdown-item btn" href="/ad/newadm/?name=&classname=1ˢᵗ#">1ˢᵗ Class</a>
+                                <a class="dropdown-item btn" href="/ad/newadm/?name=&classname=2ⁿᵈ#">2ⁿᵈ Class</a>
+                                <a class="dropdown-item btn" href="/ad/newadm/?name=&classname=3ʳᵈ#">3ʳᵈ Class</a>
+                                <a class="dropdown-item btn" href="/ad/newadm/?name=&classname=4ᵗʰ#">4ᵗʰ Class</a>
+                                <a class="dropdown-item btn" href="/ad/newadm/?name=&classname=5ᵗʰ#">5ᵗʰ Class</a>
+                                <a class="dropdown-item btn" href="/ad/newadm/?name=&classname=6ᵗʰ#">6ᵗʰ Class</a>
+                                <a class="dropdown-item btn" href="/ad/newadm/?name=&classname=7ᵗʰ#">7ᵗʰ Class</a>
+                                <a class="dropdown-item btn" href="/ad/newadm/?name=&classname=8ᵗʰ#">8ᵗʰ Class</a>
+                                <a class="dropdown-item btn" href="/ad/newadm/?name=&classname=9ᵗʰ#">9ᵗʰ Class</a>
+                                <a class="dropdown-item btn" href="/ad/newadm/?name=&classname=10ᵗʰ#">10ᵗʰ Class</a>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="nav-bar search-box-nav active">
+                        <form class="search-box" method=" get">
+                            <ul>
+                                <li><input type="text" name="name" maxlength="1000" placeholder="ENTER STUDENT NAME" class="textinput text-center textInput form-control" id="id_name"></li>
+                                <li>{{myFilter.form.classname|as_crispy_field}}</li>
+                                <li><button style="position:relative; margin-bottom:5px;" class="btn btn-primary form-control" type="submit">Search</button></li>
+                            </ul>
+                        </form>
+                    </li>
+                    <li class="nav-item active">
+                        <button type="button" class="btn btn-primary btn-add" data-toggle="modal" data-target="#exampleModalCenter">
+                            Add Student
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header bg-danger">
+                    <h5 class="modal-title text-light" id="exampleModalLongTitle">STUDENT FORM</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body bg-dark">
+                    <div class="admission-form">
+                        <form class="p-2 m-2" method="POST">
+
+                            <div class="form-group text-light">
+                                {{form|crispy}}
+                                <br>
+                                <input class="btn btn-block btn-success btn-lg" type="submit" name="" value="Add Student">
+
+                            </div>
+
+                            {% csrf_token %}
+
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="searchModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-body bg-dark">
+                    <div class="admission-form">
+                        <form method=" get">
+                            <input type="text" name="name" maxlength="1000" placeholder="ENTER STUDENT NAME" class="textinput text-center textInput form-control" id="id_name">
+                            {{myFilter.form.classname|as_crispy_field}}
+                            <button type="button" class="close btn col-6" data-dismiss="modal" aria-label="Close">
+                                Close </button>
+                            <button style="position:relative; margin-bottom:5px;" class="btn col-6 btn-primary form-control" type="submit">Search</button>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid p-1">
+
+        <div class="row">
+            <div class="col-lg-3 col-sm-3">
+                <form class="adm-form" method="POST">
+
+                    <h4 style="border-radius:8px;background:red;" class="text-center text-light p-2">FILL THE FORM</h4><br>
+
+
+                    <div class="form-group text-light p-0">
+                        <div class="form-row">
+                            <div class="form-group col-md-12 mb-0">
+                                {{form.name|as_crispy_field}}
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-12 mb-0">
+                                {{form.fathername|as_crispy_field}}
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-6 mb-0">
+                                {{form.classname|as_crispy_field}}
+                            </div>
+                            <div class="form-group col-md-6 mb-0">
+                                {{form.contact|as_crispy_field}}
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-12 mb-0">
+                                {{form.email|as_crispy_field}}
+                            </div>
+                        </div>
+                        <br>
+                        <input class="btn btn-block btn-outline-success btn-lg" type="submit" name="" value="Add Student">
+                    </div>
+
+                    {% csrf_token %}
+                </form>
+            </div>
+            <div class="col-lg-9 col-sm-9">
+                <table class="table text-light">
+
+
+
+                    {% if messages %}
+                    {% for message in messages %}
+
+                    <center class="p-2 text-danger">{{message}}</center>
+
+                    {% endfor %}
+                    {% endif %}
+
+                    <br>
+                    <thead>
+                        <tr>
+                            <th class="text-center bg-dark">STUDENT FULL NAME</th>
+                            <th class="text-center bg-dark">FATHER</th>
+                            <th class="text-center bg-dark">CLASS</th>
+                            <th class="text-center bg-dark">CONTACT</th>
+                            <th class="text-center bg-dark">EMAIL</th>
+                            <th class="text-center bg-dark"></th>
+                            <th class="text-center bg-dark"></th>
+                        </tr>
+                    </thead>
+
+                    {% for s in allstudents %}
+                    <tbody>
+                        <tr>
+                            <td>
+                                <center class="name">{{s.name}}</center>
+                            </td>
+                            <td data-label="FATHER :">{{s.fathername}}</td>
+                            <td data-label="CLASS :">{{s.classname}}</td>
+                            <td data-label="CONTACT :">{{s.contact}}</td>
+                            <td data-label="EMAIL :">{{s.email}}</td>
+
+                            <td>
+                                <center><a class="btn btn-warning btn-sm" href="/ad/update/{{s.id}}">UPDATE <i style="color:black;" class="fa fa-edit fa-lg" aria-hidden="true"></i></a></center>
+                            </td>
+                            <td>
+                                <center><a class="btn btn-danger btn-sm" href="/ad/delete/{{s.id}}">DELETE <i style="color:white;" class="fa fa-trash fa-lg" aria-hidden="true"></i></a></center>
+                            </td>
+                        </tr>
+
+                    </tbody>
+
+                    {% endfor %}
+                </table>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+</body>
+
+</html>

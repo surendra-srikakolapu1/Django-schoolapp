@@ -1,0 +1,137 @@
+{% load static %}
+
+<html>
+
+<head>
+    <title>School Management</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <link rel="stylesheet" href="{% static "stylesheets/global.css" %}" <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1" />
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css">
+
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.25/css/dataTables.bootstrap4.min.css">
+
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.25/js/dataTables.bootstrap4.min.js"></script>
+
+
+
+
+
+</head>
+
+
+
+<body class="img-fluid base-image" style="background-image:linear-gradient(rgba(0, 0, 0, 0.9),rgba(0, 0, 0, 0.9)),url('{% static "images/index7.jpg" %}')">
+    {% block content %}
+    {% load crispy_forms_tags %}
+
+    <br>
+    <nav style="background-image:linear-gradient(rgba(0, 0, 0, 0.9),rgba(0, 0, 0, 0.9)),url('{% static "images/index7.jpg" %}')" class="navbar navbar-expand-sm sticky-top navbar-dark">
+        <div class="container">
+            <a class="navbar-brand btn btn-danger" href="/"><i style="color:white;" class="fa fa-backward fa-sm" aria-hidden="true"></i> BACK</a>
+            <div class="" id="navbar1">
+                <ul class="navbar-nav ml-auto">
+
+                    <li class="nav-item active">
+                        <button type="button" class="btn btn-primary btn-add" data-toggle="modal" data-target="#exampleModalCenter">
+                            Add Student
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+    <center>
+        <h2 class="text-warning p-3 m-0">IDENTITY CARD GENERATOR</h2>
+    </center>
+
+    <div class="row">
+
+        <div class="col-md-6 col-lg-6 col-sm-12 col-xs-6 col-xl-6">
+            <div class="requirements">
+
+                <center><br>
+                    <h1 style="border-bottom:2px dotted red;border-radius:5px;" class="text-danger">INSTRUCTIONS</h1>
+                </center>
+                <div style="position:relative;left:20px;" class="list p-4">
+                    <li class="text-light">Name should be full-name. <label class="text-danger">(SURENDRA.SRIKAKOLAPU)</label></li><br>
+                    <li class="text-light">Surname not required for Father's Name</li><br>
+                    <li class="text-light">Date of birth should be in this format <label class="text-danger">(yyyy/mm/dd)</label>.</li><br>
+                    <li class="text-light">Student photo should be clear with full face <label class="text-danger">(2 inch x 2 inch)</label> .</li><br>
+                    <li style="list-style:none;">
+                        <center>
+                            <a style="position:relative;right:20px;" href="/ad/detail/32/" class="btn btn-outline-warning mb-0">Sample Identity Card <i style="color:red" class="fa fa-x fa-hand-o-left"></i></a>
+                        </center>
+                    </li>
+                </div>
+
+            </div>
+        </div>
+
+        <div style="margin-top:20px;" class="col-md-6 col-lg-12 col-sm-12 col-xs-12 col-xl-6">
+            <form class="text-uppercase text-light p-3" method="POST" enctype="multipart/form-data">
+
+                <center class="id-center">
+                    <br><br>
+                    <h3 style="border-radius:8px;background:red;" class="P-2">FILL THE FORM</h3><br>
+                </center>
+
+                <div class="form-row">
+                    <div class="form-group col-md-6 mb-0">
+                        {{form.studentname|as_crispy_field}}
+                    </div>
+                    <div class="form-group col-md-6 mb-0">
+                        {{form.fathername|as_crispy_field}}<br>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group col-md-6 mb-0">
+                        {{form.reg_no|as_crispy_field}}
+                    </div>
+                    <div class="form-group col-md-6 mb-0">
+                        {{form.classname|as_crispy_field}}<br>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group col-md-6 mb-0">
+                        {{form.dob|as_crispy_field}}
+                    </div>
+                    <div class="form-group col-md-6 mb-0">
+                        {{form.bloodgroup|as_crispy_field}}<br>
+                    </div>
+                </div>
+
+
+
+                {{form.resident_add|as_crispy_field}}
+                {{form.permanent_add|as_crispy_field}}
+                {{form.image|as_crispy_field}}
+
+                <br>
+                <input class="btn btn-block btn-danger btn-lg mb-4" type="submit" name="" value="Generate">
+                {% csrf_token %}
+            </form>
+        </div>
+
+    </div>
+
+    {% endblock content %}
+</body>
+
+</html>

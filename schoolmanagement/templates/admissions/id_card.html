@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load static %}
+
+<html>
+
+
+<body>
+    {% block content %}
+    {% for card in cards %}
+
+    <div style="margin-top:60px;font-size:20px;" class="col">
+        <a href="{% url 'detail' card.id %}">{{card.studentname}}</a>
+    </div>
+
+    {% endfor %}
+    {% endblock content %}
+</body>
+
+</html>

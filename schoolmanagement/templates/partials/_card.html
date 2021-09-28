@@ -1,0 +1,137 @@
+{% load static %}
+
+<style media="screen">
+    @media(max-width:468px) {
+        .card {
+            background: transparent;
+            border: none;
+            padding-top: 40px;
+            position: relative;
+            left: 20px;
+            top: 10px;
+        }
+
+        .card1 {
+            background: transparent;
+            border: none;
+            padding-top: 140px;
+
+            position: relative;
+            left: 20px;
+        }
+    }
+
+    @media(min-width:468px) {
+        .card {
+            background: transparent;
+            border: none;
+            padding-top: 60px;
+            position: relative;
+            left: 120px;
+            top: 10px;
+        }
+
+        .card1 {
+            background: transparent;
+            border: none;
+            padding-top: 70px;
+            position: relative;
+            left: 80px;
+        }
+    }
+</style>
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-6 col-md-6 col-xl-6 col-sm-12 card ">
+            <div class="id-card">
+                <div class="id-card-inner">
+                    <div class="id-card-front" style="background-image:url('{% static "images/id-front.jpg" %}')">
+                        <div style="margin-top:56px;font-size:20px;" class="col">
+                            <img class="thumbnail top-image" src="{{card.imageURL}}">
+                        </div>
+                        <div style="margin-top:60px;font-size:20px;" class="col">
+                            <strong class="text-center text-light">{{card.studentname}}</strong>
+                        </div>
+                        <div class="col">
+                            <div class="table-responsive">
+                                <table style="border:none;margin-top:30px;left:0;" border="0" width="100%">
+
+                                    <tbody class="tbody-light">
+
+                                        <tr>
+
+                                            <td style="color: aliceblue;" class="text-center">
+                                                Reg.number
+                                            </td>
+                                            <td style="color: aliceblue;" class="text-center">:</td>
+                                            <td style="color: aliceblue;" class="text-center">{{card.reg_no}}</td>
+
+                                        </tr>
+                                        <tr>
+
+                                            <td style="color: aliceblue;" class="text-center">&nbsp;Father Name</td>
+                                            <td style="color: aliceblue;" class="text-center">:</td>
+                                            <td style="color: aliceblue;" class="text-center">{{card.fathername}}</td>
+
+                                        </tr>
+
+                                        <tr>
+
+                                            <td style="color: aliceblue;" class="text-center">Date of Birth</td>
+                                            <td style="color: aliceblue;" class="text-center">:</td>
+                                            <td style="color: aliceblue;" class="text-center">{{card.dob}}</td>
+
+                                        </tr>
+                                        <tr>
+
+                                            <td style="color: aliceblue;padding-right:57px;">&nbsp;Class</td>
+                                            <td style="color: aliceblue;" class="text-center">:</td>
+                                            <td style="color: aliceblue;" class="text-center">{{card.classname}}</td>
+
+                                        </tr>
+                                        <tr>
+
+                                            <td style="color: aliceblue;" class="text-center">Blood Group</td>
+                                            <td style="color: aliceblue;" class="text-center">:</td>
+                                            <td style="color: aliceblue;" class="text-center">{{card.bloodgroup}}</td>
+
+                                        </tr>
+
+                                    </tbody>
+
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="col-lg-6 col-md-6 col-xl-6 col-sm-12 card1">
+            <div class="id-card">
+                <div class="id-card-inner">
+                    <div class="id-card-front" style="background-image:url('{% static "images/id-back.jpg" %}')">
+                        <br>
+                        <div style="margin-top:10px;font-size:15px;" class="col">
+                            <strong class="text-center text-light">Residential Address </strong>
+                        </div>
+                        <div style="margin-top:10px;font-size:12px;" class="col">
+                            <p class="text-center text-light">{{card.resident_add}}</p>
+                        </div>
+                        <br>
+                        <div style="margin-top:10px;font-size:15px;" class="col">
+                            <strong class="text-center text-light">Permanent Address </strong>
+                        </div>
+                        <div style="margin-top:10px;font-size:12px;" class="col">
+                            <p class="text-center text-light">{{card.permanent_add}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

@@ -1,0 +1,215 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.table-container {
+    padding: 0 20%;
+    margin: 40px auto 0;
+}
+
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table thead {
+    background-color: transparent;
+}
+
+.table thead tr th {
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.35px;
+    color: #FFFFFF;
+    opacity: 1;
+    padding: 12px;
+    vertical-align: top;
+    border: 1px solid #dee2e685;
+    background-color: #3c3f44;
+}
+
+.table tbody tr td {
+    font-size: 14px;
+    font-weight: normal;
+    letter-spacing: 0.35px;
+    color: #f1f1f1;
+    padding: 8px;
+    text-align: center;
+    border: 1px solid #dee2e685;
+}
+
+.table .text_open {
+    font-size: 14px;
+    font-weight: bold;
+    letter-spacing: 0.35px;
+    color: #FF1046;
+}
+
+.table .tbody tr td .btn {
+    width: 130px;
+    text-decoration: none;
+    line-height: 35px;
+    display: block;
+    background-color: #FF1046;
+    font-weight: medium;
+    color: #FFFFFF;
+    text-align: center;
+    vertical-align: middle;
+    user-select: none;
+    border: 1px so class="text-center"lid transparent;
+    font-size: 14px;
+    opacity: 1;
+}
+
+
+@media(min-width:469px){
+
+
+
+    .btn-add{
+        visibility:hidden;
+    }
+
+    #div_id_student label , #div_id_books_paid label{
+      color:white;
+   }
+
+    .adm-form{
+        width: 95%;
+        padding-left: 10%;
+        padding-top: 7%;
+    }
+
+}
+
+@media(max-width:468px) {
+.class-search-btn{
+    display: none;
+}
+
+    .table thead {
+        display: none;
+    }
+
+    .table,
+    .table tbody,
+    .table tr,
+    .table td {
+        display: block;
+        width: 100%;
+    }
+
+    .table tr {
+        margin-bottom: 15px;
+    }
+
+    .table tbody tr td {
+        text-align: right;
+        padding-left: 10%;
+        position: relative;
+    }
+
+    .table td:before {
+        content: attr(data-label);
+        position: absolute;
+        left: 0;
+        width: 50%;
+        padding-left: 15px;
+        font-weight: 600;
+        font-size: 14px;
+        text-align: left;
+    }
+
+
+    .search-box #div_id_classname label{
+     display: none;
+    }
+
+
+
+
+    .search-box ul li{
+        display: inline-block;
+        position: relative;
+        list-style: none;
+        margin-right: 100px;
+
+    }
+
+    .search-box select{
+        position:relative;
+
+    }
+
+    .search-box-nav{
+          display: none;
+       }
+
+      .adm-form{
+          display: none;
+      }
+
+
+}
+
+
+
+
+#id_firstname,
+#id_lastname,
+#div_id_firstname {
+    text-transform: uppercase;
+}
+
+
+
+center{
+    text-transform: uppercase;
+}
+
+
+#id_name,
+#id_fathername {
+    text-transform: uppercase;
+}
+
+.search-box #div_id_classname label{
+ display: none;
+}
+
+
+.search-box{
+    position: relative;
+    left:35%;
+}
+
+.search-box ul li{
+    display: inline-block;
+    position: relative;
+    list-style: none;
+
+}
+
+.search-box select{
+    position:relative;
+
+}
+
+
+
+ option:first-child{
+    color:red;
+}
+
+
+option:second-child{
+    color:red;
+}
+
+
+.dropdown-item:hover{
+    background-color: red;
+}

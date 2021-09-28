@@ -1,0 +1,239 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <title>School Management</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <link rel="stylesheet" href="{% static "stylesheets/global.css" %}" <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1" />
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css">
+
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.25/css/dataTables.bootstrap4.min.css">
+
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.25/js/dataTables.bootstrap4.min.js"></script>
+
+    <style media="screen">
+        .index-background {
+            background-repeat: no-repeat;
+            height: 100vh;
+            -webkit-background-size: cover;
+            background-position: auto;
+            background-size: cover;
+        }
+
+        .banner-text {
+            position: absolute;
+            top: 60%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+        }
+
+        .banner-text p {
+            font-family: poppins;
+            color: #fff;
+        }
+
+
+
+        .btn {
+            width: 200px;
+            border-radius: 10px;
+            padding: 10px;
+            margin: 20px;
+        }
+
+        .text-area {
+            font-size: 35px;
+            font-family: roboto;
+            text-transform: uppercase;
+            font-weight: bold
+        }
+
+        .text-area span {
+
+            color: yellow;
+            opacity: 1;
+            transform: translateX(-10px), rotate(360deg), scale(0);
+            animation: animate 5s forwards;
+        }
+
+        .text-area span {
+            display: inline-block;
+        }
+
+        .text-area span:nth-of-type(2) {
+            animation-delay: .1s;
+        }
+
+        .text-area span:nth-of-type(3) {
+            animation-delay: .2s;
+        }
+
+        .text-area span:nth-of-type(4) {
+            animation-delay: .3s;
+        }
+
+        .text-area span:nth-of-type(5) {
+            animation-delay: .4s;
+        }
+
+        .text-area span:nth-of-type(6) {
+            animation-delay: .5s;
+        }
+
+        .text-area span:nth-of-type(7) {
+            animation-delay: .6s;
+        }
+
+        .text-area span:nth-of-type(8) {
+            animation-delay: .7s;
+        }
+
+        @keyframes animate {
+            30% {
+                transform: translate(0, -50px) rotate(360deg) scale(1);
+            }
+
+            100% {
+                transform: translate(0, 20px) rotate(360deg) scale(.8);
+            }
+
+
+        }
+
+        @media (max-width:470px) {
+
+
+
+            .index-background {
+
+                background-repeat: no-repeat;
+                height: 100vh;
+                -webkit-background-size: cover;
+                background-position: auto;
+                background-size: cover;
+            }
+
+            .banner-text {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                text-align: center;
+            }
+
+            .banner-text p {
+                font-family: poppins;
+                color: #fff;
+            }
+
+            .banner-text p {
+                padding-top: 10px;
+            }
+
+            .text-area {
+                font-size: 32px;
+            }
+
+
+        }
+
+        @media (min-width:471px) {
+
+            .banner-text {
+                position: absolute;
+                top: 60%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                text-align: center;
+            }
+
+            a.nav-link::before {
+                content: "LOGOUT";
+                color: white;
+                font-weight: bolder;
+
+            }
+
+        }
+    </style>
+
+
+</head>
+
+<nav class="navbar navbar-expand-sm sticky-top navbar-dark">
+    <div class="container">
+        <a class="navbar-brand" href="/"><i style="color:green;" class="fa fa-user fa-lg" aria-hidden="true"></i> &nbsp; <span style="font-size:15px;font-weight:bolder;">{{user.username}}</span> </a>
+
+        <div class="" id="navbar1">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="/ad/logout"><i style="color:red;position:relative;left:5px;" class="fa fa-power-off fa-lg" aria-hidden="true"></i></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+<body class="index-background image-fluid" style="background-image:linear-gradient(rgba(0, 0, 0, 0.9),rgba(0, 0, 0, 0.9)),url('{% static "images/index7.jpg" %}')">
+
+
+    <div class="container">
+
+        <div class="banner-text">
+            <div class="text-area">
+                <span>M</span>
+                <span>Y</span><br>
+                <span>S</span>
+                <span>C</span>
+                <span>H</span>
+                <span>O</span>
+                <span>O</span>
+                <span>L</span>
+
+
+            </div>
+
+            <br><br>
+
+            <p>
+                <a class="btn btn-outline-warning" href="/ad/newteacher/">STAFF</a>
+                <a class="btn btn-outline-warning" href="/ad/newadm/">STUDENTS</a>
+                <a class="btn btn-outline-warning" href="/ad/id_generator/">ID-CARD</a>
+                <a class="btn btn-outline-warning" href="/ad/newfee/">FEE</a>
+
+            </p>
+        </div>
+    </div>
+
+    <div class="col-lg-12 com-sm-8" style="background:red; padding: 10px; margin: auto ; width:300px; color:#fff; text-align:center;" id="message">
+        Thank you for testing <strong>{{user.username}}</strong>
+    </div>
+
+    <script type="text/javascript">
+        $(function() {
+            setTimeout(function() {
+                $("#message").fadeOut(1500);
+            }, 500)
+
+        })
+    </script>
+
+</body>
+
+</html>

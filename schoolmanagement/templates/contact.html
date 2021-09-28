@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+{% load static %}
+
+<html>
+
+
+<body>
+    {% block content %}
+
+    <div class="row p-5 m-4" style="width:100%;,height:100%;">
+        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-4">
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <img src="{% static "images/265674.png" %}" alt="Avatar" style="width:300px;height:300px;">
+                        <h3 style="padding-top:5%;font-family: Georgia,'Times New Roman', Times, serif;;">VICE-PRINCIPAL</h3>
+                    </div>
+                    <div class="flip-card-back">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-4">
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <img src="{% static "images/265674.png" %}" alt="Avatar" style="width:300px;height:300px;">
+
+                        <h3 style="padding-top:5%;font-family: Georgia,'Times New Roman', Times, serif;;">PRINCIPAL</h3>
+                    </div>
+                    <div class="flip-card-back">
+                        <div class="row">
+                            <div class="col-12">
+                                <br><br>
+                                <h3 id="name">Lorem epsum</h3><br><br>
+                            </div>
+                            <div class="col-5">
+                                <h6 id="name">Contact</h6><br>
+                                <h6>Email</h6>
+                            </div>
+                            <div class="col-7">
+                                <h6>+91986483638</h6><br>
+                                <h6>Lorem@gmail.com</h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-4 pt-4">
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <img src="{% static "images/265674.png" %}" alt="Avatar" style="width:300px;height:300px;">
+                    </div>
+                    <div class="flip-card-back">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    {% endblock content %}
+</body>
+
+</html>

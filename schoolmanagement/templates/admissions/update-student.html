@@ -1,0 +1,68 @@
+{% load static %}
+
+<html>
+
+<head>
+    <title>School Management</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css">
+
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.25/css/dataTables.bootstrap4.min.css">
+
+</head>
+
+<body class="img-fluid base-image" style="background-image:linear-gradient(rgba(0, 0, 0, 0.9),rgba(0, 0, 0, 0.9)),url('{% static "images/index7.jpg" %}')">
+
+    {% load crispy_forms_tags %}
+    <br>
+
+    <nav style="background-image:linear-gradient(rgba(0, 0, 0, 0.9),rgba(0, 0, 0, 0.9)),url('{% static "images/index7.jpg" %}')" class="navbar navbar-expand-sm sticky-top navbar-dark">
+        <div class="container">
+            <a class="navbar-brand btn btn-danger" href="/ad/newadm/"><i style="color:white;" class="fa fa-backward fa-sm" aria-hidden="true"></i> BACK</a>
+
+            <div class="" id="navbar1">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active">
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+                            Add Student
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="row update-form">
+        <div class="col-4">
+
+        </div>
+        <div class="col-lg-4">
+            <div class="admission-form"><br>
+
+
+                <form class="text-light m-4" method="POST">
+
+                    {{form|crispy}}
+
+                    <br>
+                    <input class="btn btn-block btn-primary btn-lg" type="submit" name="" value="Update Student">
+
+                    {% csrf_token %}
+                </form>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

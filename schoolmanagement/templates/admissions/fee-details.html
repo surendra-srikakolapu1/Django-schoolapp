@@ -1,0 +1,203 @@
+{% load static %}
+
+<html>
+
+<head>
+    <title>School Management</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="{% static "stylesheets/tables.css" %}">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css">
+
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.25/css/dataTables.bootstrap4.min.css">
+
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.25/js/dataTables.bootstrap4.min.js"></script>
+
+
+</head>
+
+
+<body class="img-fluid base-image" style="background-image:linear-gradient(rgba(0, 0, 0, 0.9),rgba(0, 0, 0, 0.9)),url('{% static "images/index7.jpg" %}')">
+
+    {% load crispy_forms_tags %}
+
+    <br>
+
+    <nav style="background-image:linear-gradient(rgba(0, 0, 0, 0.9),rgba(0, 0, 0, 0.9)),url('{% static "images/index7.jpg" %}')" class="navbar navbar-expand-sm sticky-top navbar-dark">
+        <div class="container">
+            <a class="navbar-brand btn btn-danger" href="/"><i style="color:white;" class="fa fa-backward fa-sm" aria-hidden="true"></i> BACK</a>
+
+            <div class="" id="navbar1">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-bar search-box-nav active">
+                        <form class="search-box" method=" get">
+                            <ul>
+                                <li>{{myFilter.form.student|as_crispy_field}}</li>
+                                <li>{{myFilter.form.books_paid|as_crispy_field}}</li>
+                                <li><button style="position:relative; margin-bottom:5px;" class="btn btn-primary form-control" type="submit">Search</button></li>
+                            </ul>
+                        </form>
+                    </li>
+                    <li class="nav-item active">
+                        <button type="button" class="btn btn-primary btn-add" data-toggle="modal" data-target="#exampleModalCenter">
+                            Add FEE
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header bg-danger">
+                    <h5 class="modal-title text-light" id="exampleModalLongTitle">STUDENT FEE FORM</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body bg-dark">
+                    <div class="admission-form text-light">
+                        <form class="p-2 m-2" method="POST">
+                            {{form|crispy}}
+
+                            <div class="text-center">
+                                <input class="btn btn-primary btn-lg" type="submit" name="" value="Add Fee">
+                            </div>
+                            {% csrf_token %}
+
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <div class="container-fluid">
+
+        <br>
+
+        <div class="row">
+            <div class="col-lg-3 col-sm-3 col-md-3 ">
+                <form class="text-light adm-form" method="POST">
+
+                    <h4 style="border-radius:8px;background:red;" class="text-center p-2">FILL THE FORM</h4><br>
+
+                    <div class="form-row">
+                        <div class="form-group col-md-12 mb-0">
+                            {{form.student|as_crispy_field}}
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6 mb-0">
+                            {{form.total_fee|as_crispy_field}}
+                        </div>
+                        <div class="form-group col-md-6 mb-0">
+                            {{form.fees_paid|as_crispy_field}}
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6 mb-0">
+                            {{form.fees_due|as_crispy_field}}
+                        </div>
+                        <div class="form-group col-md-6 mb-0">
+                            {{form.books_fee|as_crispy_field}}
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div style="" class="form-group col-md-6 mb-0">
+                            {{form.books_paid|as_crispy_field}}
+                        </div>
+                        <div class="form-group col-md-6 mb-0">
+                            {{form.paid_date|as_crispy_field}}
+                        </div>
+                    </div>
+                    <br>
+                    <div class="text-center">
+                        <input class="btn btn-outline-primary btn-block btn-lg" type="submit" name="" value="Add Fee">
+                    </div>
+                    {% csrf_token %}
+
+                </form>
+            </div>
+            <div class="col-lg-9 col-sm-9"><br>
+                <table class="table text-light">
+
+                    {% if messages %}
+                    {% for message in messages %}
+
+                    <center class="p-2 text-danger">{{message}}</center>
+
+                    {% endfor %}
+                    {% endif %}
+                    <thead>
+                        <tr>
+                            <th class="text-center bg-dark">STUDENT</th>
+                            <th class="text-center bg-dark">TOTAL FEE</th>
+                            <th class="text-center bg-dark">PAID FEE</th>
+                            <th class="text-center bg-dark">DUE FEE</th>
+                            <th class="text-center bg-dark">BOOKS FEE</th>
+                            <th class="text-center bg-dark">PAID (BOOKS)</th>
+                            <th class="text-center bg-dark">PAID DATE</th>
+                            <th></th>
+                            <th></th>
+                        </tr>
+                    </thead>
+
+                    {% for s in allfees %}
+                    <tbody>
+                        <tr>
+                            <td>
+                                <center>{{s.student}}</center>
+                            </td>
+                            <td data-label="TOTAL FEE :">{{s.total_fee}}</td>
+                            <td data-label="PAID FEE :">{{s.fees_paid}}</td>
+                            <td data-label="DUE FEE :">{{s.fees_due}}</td>
+                            <td data-label="BOOKS FEE :">{{s.books_fee}}</td>
+                            <td data-label="PAID (BOOKS) :">{{s.books_paid}}</td>
+                            <td data-label="PAID DATE :">{{s.paid_date}}</td>
+
+                            <td>
+                                <center><a class="btn btn-sm" href="/ad/update-fee/{{s.id}}"><i style="color:yellow;" class="fa fa-edit fa-lg" aria-hidden="true"></i></a></center>
+                            </td>
+                            <td>
+                                <center><a class="btn  btn-sm" href="/ad/delete-fee/{{s.id}}"> <i style="color:red;" class="fa fa-trash fa-lg" aria-hidden="true"></i></a></center>
+                            </td>
+                        </tr>
+
+                    </tbody>
+
+                    {% endfor %}
+                </table>
+
+            </div>
+        </div>
+
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+
+</body>
+
+</html>

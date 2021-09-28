@@ -1,0 +1,136 @@
+{% load static %}
+
+<html>
+
+<head>
+    <title>School Management</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="{% static "stylesheets/tables.css" %}">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css">
+
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.25/css/dataTables.bootstrap4.min.css">
+
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.25/js/dataTables.bootstrap4.min.js"></script>
+
+
+</head>
+
+
+<body class="img-fluid base-image" style="background-image:linear-gradient(rgba(0, 0, 0, 0.9),rgba(0, 0, 0, 0.9)),url('{% static "images/index7.jpg" %}')">
+
+    {% load crispy_forms_tags %}
+
+    <br>
+
+    <nav style="background-image:linear-gradient(rgba(0, 0, 0, 0.9),rgba(0, 0, 0, 0.9)),url('{% static "images/index7.jpg" %}')" class="navbar navbar-expand-sm sticky-top navbar-dark">
+        <div class="container">
+            <a class="navbar-brand btn btn-danger" href="/"><i style="color:white;" class="fa fa-backward fa-sm" aria-hidden="true"></i> BACK</a>
+
+            <div class="" id="navbar1">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active">
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+                            Add Teacher
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">New Teacher</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body bg-dark">
+                    <div class="admission-form text-light">
+                        <form class="p-2 m-2" method="POST">
+
+                            {{form|crispy}} <br>
+                            <input class="btn btn-block btn-success btn-lg" type="submit" name="" value="Add Teacher">
+
+                            {% csrf_token %}
+
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="container-fluid">
+
+        <br> <br>
+        <table class="table text-light">
+            <thead>
+                <tr>
+                    <th class="text-center">FIRST NAME</th>
+                    <th class="text-center">LAST NAME</th>
+                    <th class="text-center">GENDER</th>
+                    <th class="text-center">AGE</th>
+                    <th class="text-center">SUBJECT</th>
+                    <th class="text-center">EMAIL</th>
+                    <th class="text-center">CONTACT</th>
+                    <th class="text-center">ADDRESS</th>
+                    <th class="text-center"></th>
+                    <th class="text-center"></th>
+                </tr>
+            </thead>
+
+            {% for s in allteachers %}
+            <tbody>
+                <tr>
+                    <td data-label="FIRST NAME :">{{s.firstname}}</td>
+                    <td data-label="LAST NAME :">{{s.lastname}}</td>
+                    <td data-label="GENDER :">{{s.gender}}</td>
+                    <td data-label="AGE :">{{s.age}}</td>
+                    <td data-label="SUBJECT :">{{s.subject}}</td>
+                    <td data-label="EMAIL :">{{s.email}}</td>
+                    <td data-label="CONTACT :">{{s.contact}}</td>
+                    <td data-label="ADDRESS :">{{s.address}}</td>
+                    <td>
+                        <center><a class="btn btn-warning btn-sm" href="/ad/update-teacher/{{s.id}}">UPDATE <i style="color:black;" class="fa fa-edit fa-lg" aria-hidden="true"></i></a></center>
+                    </td>
+                    <td>
+                        <center><a class="btn btn-danger btn-sm" href="/ad/delete-teacher/{{s.id}}">DELETE <i style="color:white;" class="fa fa-trash fa-lg" aria-hidden="true"></i></a></center>
+                    </td>
+                </tr>
+
+            </tbody>
+
+            {% endfor %}
+        </table>
+
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+
+</body>
+
+</html>

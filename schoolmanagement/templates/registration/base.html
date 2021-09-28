@@ -1,0 +1,348 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Base</title>
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+    <style media="screen">
+        .form-container {
+            position: relative;
+            top: 20%;
+            box-sizing: border-box;
+            border-radius: 20px;
+        }
+
+        .form-container-register {
+            position: relative;
+            top: 5%;
+            padding: 30px;
+            box-sizing: border-box;
+            border-radius: 20px;
+
+        }
+
+        .row-bottom {
+            margin-bottom: 1%;
+            padding-bottom: 1%;
+        }
+
+        h2 {
+            text-align: center;
+            font-style: oblique;
+            font-family: serif;
+            font-weight: bolder;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="password"],
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        input[type="password"]:focus {
+            font-weight: bold;
+            text-align: center;
+            border-radius: 15px;
+            background-color: rgb(255, 255, 255);
+            border: none;
+            border: 1px solid grey;
+            border-radius: 10px;
+            transition: 0.2s;
+            box-shadow: 1px 1px 3px 1px black,
+                -1px -1px 3px 1px black;
+
+        }
+
+        .btn {
+            width: 60%;
+            border-radius: 10px;
+        }
+
+        .alert {
+            border-radius: 20px;
+        }
+
+
+        @media(min-width:469px) {
+
+
+            .form-row {
+                position: relative;
+                margin-top: 20px;
+            }
+
+            h2.heading {
+                margin-top: 70px;
+            }
+
+
+            body {
+                background-color: black;
+            }
+
+            .img-resp {
+                background-image: url('/static/images/accounts.png');
+                background-size: 100% 100%;
+                top: 20px;
+                position: relative;
+                padding: 40px;
+
+            }
+
+            .input-form {
+                width: 65%;
+                margin: 0% 18%;
+            }
+
+            .logini {
+                margin: 80px 90px;
+            }
+
+            .fp-img {
+                width: 150px;
+                height: 150px;
+                position: relative;
+                left: 35%;
+            }
+
+            .btn-login {
+                position: relative;
+                width: 100%;
+
+            }
+
+            .btn-login1 {
+                position: relative;
+                font-weight: 5px;
+                width: 100%;
+
+            }
+
+            .btn-register1 {
+                position: relative;
+                font-weight: 5px;
+                width: 100%;
+
+            }
+
+            .btn-register {
+                position: relative;
+                width: 100%;
+
+            }
+
+            .bottom-img,
+            .bottom-img1 {
+                display: none;
+            }
+
+            .alert-fp {
+                position: relative;
+                left: 20%;
+                font-size: 13px;
+                color: white;
+                background-color: red;
+            }
+
+            .alert-reg,
+            .alert-login {
+                position: relative;
+                left: 0%;
+                font-size: 13px;
+                color: white;
+                background-color: red;
+            }
+
+            .limits {
+                display: none;
+            }
+
+        }
+
+        @media(max-width:468px) {
+
+            .alert-login {
+                position: relative;
+                left: 10%;
+                color: white;
+                background-color: red;
+                font-size: 13px;
+            }
+
+            .alert-fp {
+                position: relative;
+                right: 55px;
+                font-size: 13px;
+                color: white;
+                background-color: red;
+            }
+
+            .alert-reg {
+                position: relative;
+                left: 10%;
+                font-size: 13px;
+                color: white;
+                background-color: red;
+            }
+
+
+            .form-row {
+                position: relative;
+                margin-top: 120px;
+            }
+
+
+            .fp-img {
+                width: 160px;
+                height: 200px;
+                position: relative;
+
+            }
+
+            .bottom-img {
+                width: 150%;
+                position: relative;
+                right: 135px;
+
+            }
+
+            .bottom-img1 {
+                width: 150%;
+                position: relative;
+                left: 18px;
+
+            }
+
+            h2.heading {
+                color: white;
+                font-size: 40px;
+                left: 50%;
+
+                transform: translate(-60%, -0%);
+                text-align: center;
+                position: relative;
+            }
+
+            h2.heading-fp {
+                font-size: 27px;
+            }
+
+            .btn-login,
+            .btn-login1 {
+                position: relative;
+                width: 300px;
+
+            }
+
+            .btn-register1 {
+                position: relative;
+                font-weight: 5px;
+                width: 120%;
+                margin-left: 30px;
+
+            }
+
+            .btn-register {
+                position: relative;
+                width: 130%;
+
+            }
+
+
+
+
+            .input-form {
+                width: 120%;
+                margin-right: 10px;
+                right: 70px;
+                position: relative;
+
+            }
+
+            .img-resp {
+
+                background-size: 200% 200%;
+                top: 10px;
+                position: relative;
+
+            }
+
+            body {
+                background-image: url('/static/images/svg.png');
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: cover;
+            }
+
+
+
+            .form-row {
+                width: 230%;
+
+            }
+
+            .input-form {
+                width: 100%;
+
+
+            }
+
+            .logini {
+                margin: 40px 60px 40px 100px;
+            }
+
+            .form-control {
+                width: 300px;
+            }
+
+            .login-form {
+                width: 135px;
+                height: 150px;
+
+            }
+        }
+    </style>
+
+    <script>
+        $(document).ready(function() {
+            $("#myToast").toast('show');
+        });
+    </script>
+
+
+</head>
+
+
+<body class="back-image">
+
+    <section class="container">
+        <section class="row justify-content-center">
+
+            <div class="img-resp col-lg-8 col-sm-12">
+                <div class="logini">
+                    {% block content %}
+
+
+                    {% endblock content %}
+                </div>
+            </div>
+
+        </section>
+    </section>
+
+
+
+</body>
+
+</html>
